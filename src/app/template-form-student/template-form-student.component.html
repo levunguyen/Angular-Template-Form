@@ -1,0 +1,38 @@
+<p>Create Student</p>
+<div class="container">
+  <div class="col-5">
+    <form #createStudentForm = "ngForm"
+      (ngSubmit)="onSubmit(createStudentForm)"
+    >
+      <div class="form-group">
+        <label for="studentCode">Student code</label>
+        <input
+          [(ngModel)] = student.studentCode
+          name="studentCode"
+          #studentCode = "ngModel"
+          required
+          minlength="6"
+          type="text" class="form-control" id="studentCode" aria-describedby="emailHelp">
+          <div class="text-danger" *ngIf="!studentCode.valid && studentCode.touched">
+            <p>Thông tin student code không đúng</p>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="studentName">Student Name</label>
+        <input
+          [(ngModel)] = student.studentName
+          name="studentName"
+          type="text" class="form-control" id="studentName">
+      </div>
+      <div class="form-group">
+        <label for="studentAddress">Student Address</label>
+        <input
+          [(ngModel)]="student.studentAddress"
+          name="studentAddress"
+          type="text" class="form-control" id="studentAddress">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
